@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message for Safa ❤️</title>
+    
+    <!-- ✨ Upgrade 1: Red Heart Tab Icon (Favicon) -->
+    <link rel="icon" href="https://img.icons8.com/emoji/48/red-heart.png" type="image/png">
+    
+    <!-- Importing Premium Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #060005;
+            --card-bg: rgba(20, 2, 15, 0.28); 
+            --primary-pink: #ff2a85;
+            --accent-gold: #ffd700;
+            --neon-glow: 0 0 30px rgba(255, 42, 133, 0.4);
+            --glass-border: rgba(255, 42, 133, 0.25);
+            --text-light: #fff5fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            font-family: "Playfair Display", serif;
+        }
+
+        /* Seamless Native Video Background Layer */
+        .video-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+            background-color: #060005;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.45; 
+        }
+
+        /* Highly Transparent Premium Glass Card Container */
+        .screen {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 550px;
+            background: var(--card-bg);
+            padding: 40px 35px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5), 
+                        inset 0 0 20px rgba(255, 42, 133, 0.1),
+                        var(--neon-glow);
+            backdrop-filter: blur(25px); 
+            -webkit-backdrop-filter: blur(25px);
+            text-align: center;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            min-height: 480px;
+            overflow: hidden;
+        }
+
+        .screen.active { display: flex; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.96) translateY(15px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .media-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .media-container img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%; 
+            object-fit: cover;
+            box-shadow: var(--neon-glow);
+            border: 2px solid rgba(255, 42, 133, 0.4);
+        }
+
+        h1 {
+            font-family: "Sacramento", cursive;
+            font-size: 4rem;
+            color: #ffffff; 
+            margin-bottom: 5px;
+            font-weight: normal; 
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            line-height: 1.1;
+        }
+
+        .highlight-text { color: var(--primary-pink); text-shadow: 0 0 10px rgba(255, 42, 133, 0.5); font-family: "Sacramento", cursive; }
+        
+        p.subtitle { 
+            font-family: "Playfair Display", serif;
+            font-size: 0.95rem; 
+            letter-spacing: 2px; 
+            color: #f7e6f3; 
+            margin-bottom: 30px; 
+            line-height: 1.7; 
+            font-weight: 400; 
+            text-transform: uppercase;
+        }
+        
+        .btn-container { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            align-items: center; 
+            width: 100%; 
+            margin-top: 25px; 
+            position: relative;
+        }
+
+        button {
+            padding: 14px 38px; 
+            font-size: 1.05rem; 
+            font-family: "Playfair Display", serif; 
+            font-style: italic; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            border: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-primary { 
+            background: linear-gradient(45deg, #ff2a85, #ff549d); 
+            color: white; 
+            box-shadow: 0 0 20px rgba(255, 42, 133, 0.5); 
+            z-index: 5;
+        }
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(255, 42, 133, 0.8); }
+
+        .running-no {
+            background: rgba(15, 1, 11, 0.4); 
+            color: #dcbacf;
+            border: 1px solid rgba(255, 42, 133, 0.3);
+            backdrop-filter: blur(5px);
+            transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+            z-index: 10;
+        }
+
+        .music-toggle-btn {
+            background: rgba(255, 42, 133, 0.15);
+            border: 1px solid var(--primary-pink);
+            color: white;
+            padding: 14px 32px;
+        }
+
+        .modal {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(18, 2, 14, 0.92); border-radius: 30px; display: none;
+            flex-direction: column; align-items: center; justify-content: center;
+            padding: 35px; z-index: 20; border: 1px solid var(--primary-pink);
+            backdrop-filter: blur(10px);
+        }
+
+        .slider-container { width: 100%; position: relative; margin: 25px 0; overflow: hidden; border-radius: 20px; border: 1px solid rgba(255, 42, 133, 0.25); }
+        .slides { display: flex; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); width: 300%; }
+        .slide { width: 33.333%; padding: 0; }
+        .slide img { width: 100%; height: 280px; object-fit: cover; display: block; border-radius: 12px; }
+        .slider-controls { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 25px; }
+
+        .nav-dot { width: 12px; height: 12px; background: #3d0a2b; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
+        .nav-dot.active { background: var(--primary-pink); box-shadow: var(--neon-glow); transform: scale(1.2); }
+
+        /* Upgraded Letter Typography Style for Perfect Readability */
+        .letter-box {
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px dashed rgba(255, 42, 133, 0.25);
+            padding: 25px; 
+            border-radius: 20px; 
+            max-height: 250px; 
+            overflow-y: auto;
+            text-align: left; 
+            
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: 1.15rem; 
+            line-height: 1.8; 
+            color: #fffbfe; 
+            letter-spacing: 0.5px;
+            
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
+        .letter-box .salutation {
+            font-family: "Sacramento", cursive; 
+            font-size: 2.5rem;
+            font-style: normal;
+            color: var(--primary-pink);
+            display: block;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 42, 133, 0.2);
+        }
+        
+        .letter-box .sign-off {
+            font-family: "Sacramento", cursive;
+            font-size: 2.5rem;
+            font-style: normal;
+            display: block;
+            margin-top: 20px;
+            text-align: right;
+            color: var(--primary-pink);
+        }
+
+        .heart-glow { font-size: 5rem; color: var(--primary-pink); animation: pulse 1.2s infinite; margin-top: 25px; text-shadow: var(--neon-glow); }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.12); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <!-- Native Browser Local Video Background Layout -->
+    <div class="video-container">
+        <video id="bgVideo" loop playsinline>
+            <source src="bg-music.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="screen active" id="step1">
+        <h1>Hey <span class="highlight-text">Safa</span>...</h1>
+        <p class="subtitle">Adnan has something deeply special to tell you tonight. Are you ready? ✨</p>
+        
+        <!-- Music Unmute Controller -->
+        <button id="unmute-btn" class="music-toggle-btn" onclick="startLoveStory()">🎵 Start with Music</button>
+        
+        <button id="open-btn" class="btn-primary" onclick="nextStep(2)" style="display: none;">❤️ Open Message</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="screen" id="step2">
+        <h1>Be honest with me...</h1>
+        <p class="subtitle">Do you completely trust me? 💕</p>
+        <div class="btn-container">
+            <button class="btn-primary" onclick="nextStep(3)">Yes, I do completely 💕</button>
+            <button class="btn-secondary running-no">No 🥺</button>
+        </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="screen" id="step3">
+        <h1>One more thing...</h1>
+        <p class="subtitle">Do you love how beautiful everything has been this past month? 🌸</p>
+        <div class="btn-container">
+            <button class="btn-primary" onclick="nextStep(4)">Yes, I love it! 💖</button>
+            <button class="btn-secondary running-no">No 🥺</button>
+        </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="screen" id="step4">
+        <div class="modal" id="trickModal">
+            <h1 style="font-size: 3rem;">Just Say YES, Safa!</h1>
+            <p class="subtitle">Don't make Adnan wait! Let's lock in this beautiful journey together. ✨</p>
+            <button class="btn-primary" onclick="closeTrickAndProgress()">❤️ Yes, I'll Say YES! ❤️</button>
+        </div>
+
+        <h1>The absolute big question...</h1>
+        <p class="subtitle">Will you be my forever? ☀️</p>
+        <div class="btn-container">
+            <button class="btn-primary" onclick="nextStep(5)">Yes, forever! 💍</button>
+            <button class="btn-secondary" onclick="triggerTrickModal()">Let me think... 🤔</button>
+        </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="screen" id="step5">
+        <h1>Our First Month... 💫</h1>
+        <p class="subtitle" style="margin-bottom: 10px;">Every single day with you, Safa, has made my life infinitely brighter.</p>
+        
+        <div class="slider-container">
+            <div class="slides" id="carouselSlides">
+                <div class="slide"><img src="us1.png" alt="Memory 1"></div>
+                <div class="slide"><img src="us2.png" alt="Memory 2"></div>
+                <div class="slide"><img src="us3.png" alt="Memory 3"></div>
+            </div>
+        </div>
+
+        <div class="slider-controls">
+            <div class="nav-dot active" onclick="manualSliderControl(0)"></div>
+            <div class="nav-dot" onclick="manualSliderControl(1)"></div>
+            <div class="nav-dot" onclick="manualSliderControl(2)"></div>
+        </div>
+
+        <button class="btn-primary" onclick="stopAutoplayAndProgress()">💌 Read My Letter ✨</button>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="screen" id="step6">
+        <h1>My Promise to You...</h1>
+        
+        <div class="letter-box">
+            <span class="salutation">Dearest Safa,</span>
+            It’s almost been a month since you came into my life, and I can honestly say my world has completely rewritten itself around you. Your smile is my absolute favorite sight, and knowing I have you makes every day feel full of hope and happiness.<br><br>
+            This past month has only been the beautiful beginning. I want to be there for you through everything—to celebrate your brightest wins and to hold you close through any dark storm. You are my clarity, my comfort, and my heart.
+            <span class="sign-off">Forever yours, Adnan</span>
+        </div>
+
+        <button class="btn-primary" onclick="nextStep(7)">❤️ Yes, I'm Yours! ❤️</button>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="screen" id="step7">
+        <h1>The Happiest Man Alive! 🎉</h1>
+        <p class="subtitle" style="margin-bottom: 15px;">Thank you for saying yes, Safa 🥰</p>
+        <p style="color: #cca3bd; font-style: italic; letter-spacing: 1px; font-size: 0.85rem;">I promise to cherish, love, and protect you forever...</p>
+        <div class="heart-glow">❤️</div>
+    </div>
+
+    <!-- ✨ Upgrade 2: Ambient Soft Falling Blossoms Script -->
+    <script>
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.innerHTML = '🌸'; 
+            petal.style.position = 'fixed';
+            petal.style.top = '-20px';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            petal.style.opacity = Math.random() * 0.4 + 0.2;
+            petal.style.zIndex = '1';
+            petal.style.pointerEvents = 'none';
+            
+            const duration = Math.random() * 5 + 5;
+            petal.style.transition = `transform ${duration}s linear, opacity ${duration}s ease-out`;
+            document.body.appendChild(petal);
+
+            setTimeout(() => {
+                petal.style.transform = `translateY(105vh) translateX(${Math.random() * 100 - 50}px) rotate(${Math.random() * 360}deg)`;
+                petal.style.opacity = '0';
+            }, 100);
+
+            setTimeout(() => { petal.remove(); }, duration * 1000);
+        }
+        setInterval(createPetal, 600);
+    </script>
+
+    <!-- Project Functionality Core Logic Script -->
+    <script>
+        const video = document.getElementById('bgVideo');
+        let currentSlideIndex = 0;
+        let sliderIntervalTimer = null;
+
+        function startLoveStory() {
+            if(video) {
+                video.muted = false;
+                video.volume = 0.7;
+                video.play().catch(error => console.log("Playback interaction flag required:", error));
+            }
+            document.getElementById('unmute-btn').style.display = 'none';
+            document.getElementById('open-btn').style.display = 'inline-block';
+        }
+
+        function nextStep(stepNumber) {
+            document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+            document.getElementById('step' + stepNumber).classList.add('active');
+
+            if (stepNumber === 5) {
+                startImageAutoplayEngine();
+            }
+        }
+
+        function startImageAutoplayEngine() {
+            if (sliderIntervalTimer === null) {
+                sliderIntervalTimer = setInterval(() => {
+                    currentSlideIndex = (currentSlideIndex + 1) % 3;
+                    renderActiveSlidePosition(currentSlideIndex);
+                }, 1000); // Transitions exactly every 1 second
+            }
+        }
+
+        function manualSliderControl(slideIndex) {
+            clearInterval(sliderIntervalTimer);
+            sliderIntervalTimer = null;
+            currentSlideIndex = slideIndex;
+            renderActiveSlidePosition(slideIndex);
+            
+            setTimeout(startImageAutoplayEngine, 3000);
+        }
+
+        function renderActiveSlidePosition(slideIndex) {
+            const slidesContainer = document.getElementById('carouselSlides');
+            if (slidesContainer) {
+                slidesContainer.style.transform = `translateX(-${slideIndex * 33.333}%)`;
+                const dots = document.querySelectorAll('.nav-dot');
+                dots.forEach(dot => dot.classList.remove('active'));
+                if (dots[slideIndex]) {
+                    dots[slideIndex].classList.add('active');
+                }
+            }
+        }
+
+        function stopAutoplayAndProgress() {
+            clearInterval(sliderIntervalTimer);
+            sliderIntervalTimer = null;
+            nextStep(6);
+        }
+
+        function dodgeButton(buttonElement) {
+            const positionsX = [-140, 140, -100, 100, -120, 120];
+            const positionsY = [-80, -110, -150, 20, -50, -90];
+            
+            let randomX = positionsX[Math.floor(Math.random() * positionsX.length)];
+            let randomY = positionsY[Math.floor(Math.random() * positionsY.length)];
+            
+            buttonElement.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function setupRunawayButtons() {
+            document.querySelectorAll('button.running-no').forEach(btn => {
+                btn.style.outline = "40px solid transparent";
+
+                const triggerDodge = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dodgeButton(btn);
+                };
+
+                btn.addEventListener('mouseenter', triggerDodge, { passive: false });
+                btn.addEventListener('mouseover', triggerDodge, { passive: false });
+                btn.addEventListener('mousemove', triggerDodge, { passive: false });
+                btn.addEventListener('touchstart', triggerDodge, { passive: false });
+                btn.addEventListener('pointerdown', triggerDodge, { passive: false });
+                btn.addEventListener('click', triggerDodge, { passive: false });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupRunawayButtons);
+        } else {
+            setupRunawayButtons();
+        }
+
+        function triggerTrickModal() {
+            document.getElementById('trickModal').style.display = 'flex';
+        }
+
+        function closeTrickAndProgress() {
+            document.getElementById('trickModal').style.display = 'none';
+            nextStep(5);
+        }
+    </script>
+</body>
+</html>
